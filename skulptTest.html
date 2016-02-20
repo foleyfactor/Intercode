@@ -7,70 +7,37 @@
 <script src="codemirror-5.12/lib/codemirror.js"></script>
 <link rel="stylesheet" href="codemirror-5.12/theme/monokai.css" >
 <script type="text/javascript" src="codemirror-5.12/mode/python/python.js"></script>
+<script type="text/javascript" src="lessons.json"></script>
+
 <style>
+#editor-wrapper {width: 45%; float: left;}
+#console-wrapper {width: 45%; float: right;}
 </style>
 
 </head> 
 
 <body> 
-<form> 
+<form>
+<div id="editor-wrapper">
 <textarea id="yourcode" cols="40" rows="10">
 #Sample code goes here:
 def sample(h):
   print(h)
 
 sample("blah")
-</textarea><br /> 
-<button type="button" onclick="runit()">Run</button> 
+</textarea></div>
+
+<div id="console-wrapper">
+<textarea id="youroutput" cols="40" rows="10">
+#Output goes here.
+</textarea></div>
+<br />
+
+
+<button type="button" id="go" onclick="runit()">Run</button> 
 </form> 
-<pre id="output" ></pre> 
-<!-- If you want turtle graphics include a canvas -->
-<div id="mycanvas"></div> 
 
-<script type="text/javascript">
-var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("yourcode"), {
-  theme: "monokai",
-  value: "hi",
-  mode: "python",
-  lineNumbers: true
-  });
-  myCodeMirror.id = "test";
-
-// output functions are configurable.  This one just appends some text
-// to a pre element.
-function outf(text) { 
-    var mypre = document.getElementById("output"); 
-    mypre.innerHTML = mypre.innerHTML + text; 
-} 
-function builtinRead(x) {
-    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-            throw "File not found: '" + x + "'";
-    return Sk.builtinFiles["files"][x];
-}
-// Here's everything you need to run a python program in skulpt
-// grab the code from your textarea
-// get a reference to your pre element for output
-// configure the output function
-// call Sk.importMainWithBody()
-function runit() { 
-   var prog = myCodeMirror.getValue(); 
-   var mypre = document.getElementById("output"); 
-   mypre.innerHTML = ''; 
-   Sk.pre = "output";
-   Sk.configure({output:outf, read:builtinRead}); 
-   (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
-   var myPromise = Sk.misceval.asyncToPromise(function() {
-       return Sk.importMainWithBody("<stdin>", false, prog, true);
-   });
-   myPromise.then(function(mod) {
-       console.log('success');
-   },
-       function(err) {
-       alert(err.toString());
-   });
-} 
-</script> 
-
+<script type="text/javascript" src="functions.js"></script>
 </body>
 
 </html> 
