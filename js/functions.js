@@ -124,10 +124,6 @@ function verifyLesson(inp, out) {
   return true;
 }
 
-function setUnit(unitID) {
-  localStorage.setItem("unit", unitID);
-}
-
 function getUnit() {
   return localStorage.getItem("unit");
 }
