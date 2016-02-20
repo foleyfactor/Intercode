@@ -108,20 +108,20 @@ Lesson List
 /**
 Login area
 **/
-#loginarea{
+#loginarea, #signuparea{
 	display: none;
 	background: white;
 	width: 50vw;
 	border-radius: .2em;
 	text-align: center;
 }
-#loginarea h1 {
+#loginarea h1 , #signuparea h1{
 	text-align: center;
 	font-weight: 300;
 	font-size: 2em;
 	margin: 20px 0px;
 }
-#loginarea input {
+#loginarea input , #signuparea input{
 	text-align: center;
 	width: 44vw;
 	margin: 5px 1.5vw;
