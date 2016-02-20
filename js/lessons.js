@@ -19,4 +19,4 @@ function createLesson(title, tag, level, unit){
 $('.button').on('click', function() {
 	setUnit($(this).attr("unit"))
 	window.location.href("lesson.html");
-})
+});
