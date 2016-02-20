@@ -1,3 +1,9 @@
+var ref = new Firebase("https://intercoding.firebaseio.com");
+
+$(window).bind('beforeunload', function() {
+  return 'Are you sure you want to go? Make sure you run your code to save it!';
+});
+
 var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("yourcode"), {
   theme: "monokai",
   value: "hi",
@@ -12,8 +18,6 @@ var consoleOut = CodeMirror.fromTextArea(document.getElementById("youroutput"), 
   readOnly: true
   });
 
-// output functions are configurable.  This one just appends some text
-// to a pre element.
 function outf(text) { 
     var mypre = consoleOut.getValue(''); 
     consoleOut.setValue(mypre + text); 
@@ -23,14 +27,19 @@ function builtinRead(x) {
             throw "File not found: '" + x + "'";
     return Sk.builtinFiles["files"][x];
 }
-// Here's everything you need to run a python program in skulpt
-// grab the code from your textarea
-// get a reference to your pre element for output
-// configure the output function
-// call Sk.importMainWithBody()
-function runit() { 
+
+function runit() {
    var prog = myCodeMirror.getValue(); 
-   var mypre = document.getElementById("youroutput"); 
+   var mypre = document.getElementById("youroutput");
+
+   var unitID = getUnit();
+
+   if (!ref.getAuth()) {
+     window.location.replace("index.html");
+   }
+   //Need lesson and unit ID in order to update the text
+   var uid = ref.getAuth().uid;
+   var ref.child("users").child(uid).child(unitID).child(lessonID).child('code').set(prog);
    consoleOut.setValue(''); 
    Sk.pre = "output";
    Sk.configure({output:outf, read:builtinRead}); 
@@ -44,20 +53,40 @@ function runit() {
        function(err) {
        consoleOut.setValue(err.toString());
    });
+
+   var outputVerify;
+   var inputVerify;
+   ref.once('value', function(snapshot) {
+    var temp = snapshot.child("users").child(uid).child(unitID).child(lessonID).val();
+    outputVerify = temp['output'];
+    inputVerify = temp['input'];
+   })
+
+   if (verifyLesson(inputVerify, outputVerify)) {
+      //do stuff if the lesson is correct.
+   } else {
+      //tell them they're wrong
+   }
 }
 
-function loadLesson(lesson) {
-  $('#lesson').text(lesson['lessonText']);
-  myCodeMirror.setValue(lesson['input']);
-
+function loadLesson() {
+  var text, code;
+  var unitID = getUnit();
+  ref.once('value', function(snapshot) {
+    var temp = snapshot.child(uid).child(unitID).child(lessonID).val();
+    text = temp['text'];
+    code = temp['code'];
+  })
+  myCodeMirror.setValue(code);
+  //jquery the lesson text.
 }
 
-function verifyLesson(lesson) {
+function verifyLesson(inp, out) {
   var codeOut = consoleOut.getValue();
   var codeIn = myCodeMirror.getValue();
-  for (var i=0; i<lesson['outputVerify'].length; i++) {
+  for (var i=0; i<out.length; i++) {
     var includes = true;
-    var check = lesson['outputVerify'][i];
+    var check = out[i];
     if (check.substring(0, 1) === '!') {
       includes = false;
       check = check.substring(1, check.length);
@@ -73,9 +102,9 @@ function verifyLesson(lesson) {
     }
   }
 
-  for (var i=0; i<lesson['inputVerify'].length; i++) {
+  for (var i=0; i<inp.length; i++) {
     var includes = true;
-    var check = lesson['inputVerify'][i];
+    var check = inp[i];
     if (check.substring(0, 1) === '!') {
       includes = false;
       check = check.substring(1, check.length);
@@ -91,4 +120,12 @@ function verifyLesson(lesson) {
     }
   }
   return true;
+}
+
+function setUnit(unitID) {
+  localStorage.setItem("unit", unitID);
+}
+
+function getUnit() {
+  return localStorage.getItem("unit");
 }
