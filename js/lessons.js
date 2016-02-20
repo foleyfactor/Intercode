@@ -1,6 +1,8 @@
 var ref = new Firebase("https://intercoding.firebaseio.com");
 $(document).ready(function(){
-	console.log(ref.getAuth());
+	if(!ref.getAuth()){
+		window.location.replace("index.html");
+	}
 	createLesson("Simple Loops", "ANIMALS", "BEGINNER", "Ok");
 	createLesson("Linked Lists", "DOGS", "INTERMEDIATE", "Ok");
 	createLesson("Dijkstra's Algorithm", "CATS", "HARD", "Ok");

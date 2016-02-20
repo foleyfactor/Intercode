@@ -53,16 +53,18 @@ Main splash page
 Header
 **/
 header {
+	z-index: 2;
+	position: relative;
 	display: block;
 	background-color: #9C27B0;
-	padding: 15px 0px;
+	padding: 1em 0px;
 	box-shadow: 0px -2px 4px 4px rgba(0,0,0,0.4);
 	font-family: Roboto, sans-serif;
 }
 header h1 {
+	margin-left: 72px;
 	color: white;
 	text-align: left;
-	padding-left: 2em;
 	font-weight: 400;
 	opacity: 0.87;
 	font-size: 2.5em;
@@ -187,4 +189,52 @@ form {
 	margin: 10px auto;
 	font-family: Roboto, sans-serif;
 	font-weight: 300;
+}
+
+/**
+Menu
+**/
+#hamburger {
+	float: left;
+	color: white;
+	font-size: 2em;
+	z-index: ;
+	margin: 0px 20px;
+	font-weight: 300;
+	display: block;
+	cursor: 
+}
+#menu {
+	position: fixed;
+	display: none;
+	top: 4em;
+	left: 0px;
+	height: 100vh;
+	width:18%;
+	z-index: 1;
+	background: white;
+	border-right: 1px solid rgba(0,0,0,0.05);
+	overflow: hidden;
+	padding-top: 2em;
+}
+#menu ul li{
+	width: 100%;
+	text-align: center;
+	font-family: Roboto, sans-serif;
+	display: block;
+	text-align: left;
+	
+}
+#menu ul li a {
+	display: block;
+	padding: 1em 0;
+	font-size: 1.5em;
+	text-decoration: none;
+	font-weight: 300;
+	width: 100%;
+	color: black;
+	padding-left: 20px;	
+}
+.active, #menu ul li a:hover {
+	background-color: rgba(0,0,0,0.05);
 }
