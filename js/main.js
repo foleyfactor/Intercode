@@ -1,5 +1,8 @@
 var ref = new Firebase("https://intercoding.firebaseio.com");
 $(document).ready(function(){
+	if(ref.getAuth()){
+		window.location.replace("learning.html");
+	}
 	$("#getstarted").on("click", function(){
 		$('#signuparea').lightbox_me({
 	        centered: true, 
@@ -8,8 +11,8 @@ $(document).ready(function(){
             }
         });
 	});
+
 	$("#signup").on("click", function(){
-		console.log("heyo")
 		ref.createUser({
 			email: $("#signemail").val(),
 			password: $("#signpassword").val()
@@ -31,6 +34,7 @@ $(document).ready(function(){
 		  }
 		});
 	});
+
 	$("#loginlink").on("click", function(){
 		$("#signuparea").trigger("close");
 		$("#loginarea").lightbox_me({
@@ -53,6 +57,7 @@ $(document).ready(function(){
 		  	}
 		});
 	});
+
 	$("#resignup").on("click", function(){
 		$("#loginarea").trigger("close");
 		$("#signuparea").lightbox_me({

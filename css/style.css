@@ -68,10 +68,11 @@ Lesson List
 .lessonitem {
 	display: block;
 	width: 100%;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
+	border-bottom: 1px solid rgba(0,0,0,0.05);
 	height: 15vh;
 }
 .lessontitle {
+	margin-top: 20px;
 	font-size: 2em;
 	font-weight: 300;
 	opacity: 0.87;
@@ -80,13 +81,15 @@ Lesson List
 	float: left;
 }
 .lessonitemleft {
-	width: 55vw;
+	width: 60vw;
 	text-align: right;
-	padding: 2.5vw;
 }
 .lessonitemright {
 	line-height: 15vh;
 	width: 40vw;
+}
+.lessonitemright .button {
+	margin-left: 20px;
 }
 .tag {
 	display: block;
@@ -100,11 +103,18 @@ Lesson List
 	background-color: rgba(0,0,0,0.12);
 	opacity: 0.87;
 }
-.easy {
+.BEGINNER {
 	color: rgba(76,175,80,.54);
 	background-color: rgba(76,175,80,.12);
 }
-
+.INTERMEDIATE {
+	color: rgba(220,231,117,.95);
+	background-color: rgba(220,231,117,.32);
+}
+.HARD {
+	color: rgba(255,0,0,.54);
+	background-color: rgba(255,0,0,.12);
+}
 /**
 Login area
 **/
