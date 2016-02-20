@@ -125,7 +125,7 @@ function verifyLesson(inp, out) {
 }
 
 function getUnit() {
-  return localStorage.getItem("unit");
+  return JSON.parse(localStorage.getItem("unit"));
 }
 
 function next(uid) {
