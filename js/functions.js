@@ -1,7 +1,8 @@
 var ref = new Firebase("https://intercoding.firebaseio.com");
 
 $(window).bind('beforeunload', function() {
-  return 'Are you sure you want to go? Make sure you run your code to save it!';
+  ref.child("users").child(uid).child(unitID).child(lessonID).child('code').set(prog);
+  return true;
 });
 
 var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("yourcode"), {
@@ -39,7 +40,7 @@ function runit() {
    }
    //Need lesson and unit ID in order to update the text
    var uid = ref.getAuth().uid;
-   var ref.child("users").child(uid).child(unitID).child(lessonID).child('code').set(prog);
+   ref.child("users").child(uid).child(unitID).child(lessonID).child('code').set(prog);
    consoleOut.setValue(''); 
    Sk.pre = "output";
    Sk.configure({output:outf, read:builtinRead}); 
@@ -69,7 +70,7 @@ function runit() {
    }
 }
 
-function loadLesson() {
+function loadLesson(uid) {
   var text, code;
   var unitID = getUnit();
   ref.once('value', function(snapshot) {
@@ -78,7 +79,8 @@ function loadLesson() {
     code = temp['code'];
   })
   myCodeMirror.setValue(code);
-  //jquery the lesson text.
+  consoleOut.setValue("Output goes here!");
+  $("#lesson-text").text(text);
 }
 
 function verifyLesson(inp, out) {
@@ -128,4 +130,18 @@ function setUnit(unitID) {
 
 function getUnit() {
   return localStorage.getItem("unit");
+}
+
+function next(uid) {
+  lessonID ++;
+  ref.once('value', function(snapshot) {
+    if (snapshot.child("users").child(uid).child(unitID).numChildren() < lessonID) {
+      window.location.replace("learning.html");
+    } else if (snapshot.child("users").child(uid).child(unitID).numChildren() === lessonID) {
+      $('#next').text("Finish");
+      loadLesson(uid);
+    } else {
+      loadLesson(uid);
+    }
+  });
 }
