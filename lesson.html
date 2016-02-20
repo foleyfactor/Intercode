@@ -16,15 +16,15 @@
 </head> 
 <script type="text/javascript">
 	var lessonID = 1;
-	$(window).load(function() {
-		loadLesson(ref.getAuth().id);
+	$(document).ready(function() {
+		loadLesson();
 	})
 </script>
 
 <body>
 <header>
 	<a id="hamburger">&#9776;</a>
-	<h1>Title here</h1>
+	<h1>Loading...</h1>
 </header>
 <section id = "menu">
 <ul>
@@ -32,6 +32,8 @@
 <li><a href="profile.html">Profile</a></li>
 </ul>
 </section>
+<div class="spinner"></div>
+<section id="main" style="display:none">
 <div id="lesson-text">
 This is the lesson text :)
 </div>
@@ -55,6 +57,7 @@ sample("blah")
 <br />
 
 </form> 
+</section>
 
 <script type="text/javascript" src="js/functions.js"></script>
 

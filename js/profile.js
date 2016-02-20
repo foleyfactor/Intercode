@@ -9,6 +9,8 @@ $(document).ready(function(){
 		ref.once("value", function(snapshot){
 			points=snapshot.child("users").child(ref.getAuth().uid).child("score").val();
 			$(".points").append("<b> "+points+"</b> points.");
+			$("#profile-wrapper").css("display", "block");
+			$(".spinner").css("display", "none");
 		});
 		
 	}
