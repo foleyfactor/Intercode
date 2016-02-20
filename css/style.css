@@ -40,7 +40,7 @@ Main splash page
 	font-weight: 300;
 	text-align: center;
 }
-.getstarted {
+#getstarted {
 	margin-top: 5em;
 }
 
@@ -103,4 +103,32 @@ Lesson List
 .easy {
 	color: rgba(76,175,80,.54);
 	background-color: rgba(76,175,80,.12);
+}
+
+/**
+Login area
+**/
+#loginarea{
+	display: none;
+	background: white;
+	width: 50vw;
+	border-radius: .2em;
+	text-align: center;
+}
+#loginarea h1 {
+	text-align: center;
+	font-weight: 300;
+	font-size: 2em;
+	margin: 20px 0px;
+}
+#loginarea input {
+	text-align: center;
+	width: 44vw;
+	margin: 5px 1.5vw;
+	padding: 1.5vw;
+	font-size: 1.5em;
+	border-radius: 2em;
+	opacity: 0.87;
+	border: 1px solid rgba(0,0,0,0.1);
+	outline: 0px;
 }

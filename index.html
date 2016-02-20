@@ -3,8 +3,12 @@
 <head>
 	<title>Intercode</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/main.js"></script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	<script type="text/javascript" src="js/jquery.lightbox_me.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -12,10 +16,16 @@
 	<h1>Intercode</h1>
 	<h2>The best way to learn coding. Your way to learn coding.</h2>
 	<br><br><br><br>
-	<a href="learning.html" class="getstarted button big">GET STARTED</a>
+	<a id="getstarted" class="button big">GET STARTED</a>
 </header>
-<section id = "main">
-
+<section id = "loginarea">
+<h1>Let's do this.</h1>
+<input placeholder="Email" type="email" id="email"></input>
+<input placeholder="Password" type="password" id="password"></input>
+<br><br><br>
+<a class="button big" id="signup">SIGN UP</a>
+<span>Already have an account? <a id="login">Login.</a>
+<br><br><br>
 </section>
 </body>
 </html>
