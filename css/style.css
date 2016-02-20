@@ -1,36 +1,6 @@
-*,html{
-	padding: 0px;
-	margin: 0px;
-	font-family: Roboto, sans-serif;
-}
-header {
-	display: block;
-	background-color: #9C27B0;
-	padding: 15px 0px;
-	box-shadow: 0px -2px 4px 4px rgba(0,0,0,0.4);
-}
-#mainheader {
-	text-align: center;
-	min-height: 65vh;
-	color: white;
-	box-shadow: initial;
-}
-#mainheader h1 {
-	font-size: 4em;
-	line-height: 25vh;
-}
-#mainheader h2 {
-	opacity: 0.57;
-	font-weight: 300;
-	text-align: center;
-}
-header h1 {
-	color: white;
-	text-align: center;
-	font-weight: 300;
-	opacity: 0.87;
-	font-size: 2.5em;
-}
+/**
+Global/Material styles
+**/
 .button {
 	text-decoration: none;
 	opacity: 0.87;
@@ -40,6 +10,93 @@ header h1 {
 	padding: 0.5em 1em;
 	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
 }
+*,html{
+	padding: 0px;
+	margin: 0px;
+	font-family: Roboto, sans-serif;
+}
+
+/**
+Main splash page
+**/
+#mainheader {
+	text-align: center;
+	min-height: 65vh;
+	color: white;
+	box-shadow: initial;
+}
+#mainheader h1 {
+	text-align: center;
+	padding: 0px;
+	font-size: 4em;
+	line-height: 25vh;
+}
+#mainheader h2 {
+	opacity: 0.57;
+	font-weight: 300;
+	text-align: center;
+}
 .getstarted {
 	margin-top: 5em;
+}
+
+/**
+Header
+**/
+header {
+	display: block;
+	background-color: #9C27B0;
+	padding: 15px 0px;
+	box-shadow: 0px -2px 4px 4px rgba(0,0,0,0.4);
+}
+header h1 {
+	color: white;
+	text-align: left;
+	padding-left: 2em;
+	font-weight: 400;
+	opacity: 0.87;
+	font-size: 2.5em;
+}
+
+/**
+Lesson List
+**/
+.lessonitem {
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	height: 15vh;
+}
+.lessontitle {
+	font-size: 2em;
+	font-weight: 300;
+	opacity: 0.87;
+}
+.lessonitemleft, .lessonitemright {
+	float: left;
+}
+.lessonitemleft {
+	width: 55vw;
+	text-align: right;
+	padding: 2.5vw;
+}
+.lessonitemright {
+	line-height: 15vh;
+	width: 40vw;
+}
+.tag {
+	display: block;
+	padding: 0.1em 0.3em;
+	border-radius: 0.15em;
+	float: right;
+	margin: 0px 2px;
+}
+.theme {
+	color: rgba(0,0,0,0.54);
+	background-color: rgba(0,0,0,0.12);
+	opacity: 0.87;
+}
+.easy {
+	color: rgba(76,175,80,.54);
+	background-color: rgba(76,175,80,.12);
 }
