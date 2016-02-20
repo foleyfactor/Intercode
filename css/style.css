@@ -10,6 +10,10 @@ Global/Material styles
 	padding: 0.5em 1em;
 	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
 }
+.button.big {
+	font-size: 1.15em;
+	padding: 1em 1.5em;
+}
 *,html{
 	padding: 0px;
 	margin: 0px;
