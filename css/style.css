@@ -9,6 +9,9 @@ Global/Material styles
 	border-radius: 0.2em;
 	padding: 0.5em 1em;
 	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
+	border: 0px;
+	outline: 0px;
+	font-family: Roboto, sans-serif;
 }
 .button.big {
 	font-size: 1.15em;
@@ -17,6 +20,8 @@ Global/Material styles
 *,html{
 	padding: 0px;
 	margin: 0px;
+}
+#main {
 	font-family: Roboto, sans-serif;
 }
 
@@ -52,6 +57,7 @@ header {
 	background-color: #9C27B0;
 	padding: 15px 0px;
 	box-shadow: 0px -2px 4px 4px rgba(0,0,0,0.4);
+	font-family: Roboto, sans-serif;
 }
 header h1 {
 	color: white;
@@ -141,4 +147,44 @@ Login area
 	opacity: 0.87;
 	border: 1px solid rgba(0,0,0,0.1);
 	outline: 0px;
+}
+
+/**
+Code editing
+**/
+form {
+	font-family: monospace;
+}
+#editor-wrapper, #console-wrapper, #button-wrapper {
+	width: 60%;
+	margin: 10px auto;
+}
+
+.CodeMirror {
+	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
+	border-radius: 0.2em;
+}
+#button-wrapper .button {
+	box-shadow: initial;
+}
+#editor-wrapper .CodeMirror {
+	height: 40%;
+}
+#console-wrapper .CodeMirror{
+	margin-top: 20px;
+	height: 10%;
+}
+#button-wrapper {
+	margin-top:-3em;
+	padding-right: 10px;
+	text-align: right;
+}
+.run { 
+	margin: 10px auto;
+}
+#lesson-text {
+	width: 60%;
+	margin: 10px auto;
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
 }

@@ -5,6 +5,7 @@ $(document).ready(function(){
 	createLesson("Linked Lists", "DOGS", "INTERMEDIATE", "Ok");
 	createLesson("Dijkstra's Algorithm", "CATS", "HARD", "Ok");
 });
+
 function createLesson(title, tag, level,lesson){
 	$("#lessons").append('<li class="lessonitem"><div class="lessonitemleft"> \
 		<h1 class="lessontitle">'+title+'</h1> \
