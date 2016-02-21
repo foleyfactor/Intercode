@@ -123,7 +123,7 @@ function loadLesson() {
     consoleOut.setValue("Output goes here!");
     console.log(text);
     $("header h1").text(title);
-    $("#lesson-text").text(text);
+    $("#lesson-text").html(text);
     $(".spinner").css("display", "none");
     $("#main").css("display", "initial");
     myCodeMirror.refresh();
