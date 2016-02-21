@@ -162,7 +162,6 @@ function next(uid) {
       loadLesson(uid);
     }
   });
-<<<<<<< HEAD
 }
 
 function saveCode() {
@@ -193,6 +192,5 @@ String.prototype.format = function (arguments) {
     }
     return this_string;
 };
-=======
-}
->>>>>>> origin/master
+
+
