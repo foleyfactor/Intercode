@@ -1,6 +1,9 @@
 var ref = new Firebase("https://intercoding.firebaseio.com");
 var uid;
 $(document).ready(function(){
+	if(!ref.getAuth()){
+		window.location.href="index.html";
+	}
 	uid = ref.getAuth().uid;
 	var activeThemes;
 	ref.once("value", function(snapshot){

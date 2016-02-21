@@ -1,6 +1,13 @@
 var ref = new Firebase("https://intercoding.firebaseio.com");
-var uid = ref.getAuth().uid;
-var dataSaver = window.setInterval(saveCode, 10000);
+var dataSaver;
+var uid;
+$(document).ready(function(){
+  if(!ref.getAuth()){
+    window.location.href="index.html";
+  }
+  uid = ref.getAuth().uid;
+  dataSaver = window.setInterval(saveCode, 10000);
+});
 
 $(window).on('unload', function() {
   window.clearInterval(dataSaver);
@@ -99,6 +106,9 @@ function addPoints(difficulty){
 }
 
 function loadLesson() {
+  if(!ref.getAuth()){
+    window.location.href="index.html"
+  }
   var uid = ref.getAuth().uid;
   var text, code, title, output, input, alreadyCompleted;
   var unitID = getUnit();
