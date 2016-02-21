@@ -6,6 +6,10 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	<script type="text/javascript" src="js/jquery.lightbox_me.js"></script>
+
+	<script type="text/javascript" src="js/themes.js"></script>
+	<script type="text/javascript" src="js/themeChooser.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/profile.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -25,7 +29,11 @@
 <section id = "profile-wrapper" style="display: none">
 <img id="profilepic"/><br>
 <span class="welcome">Welcome back,</span><br>
-<span class="points">You currently have</span>
+<span class="points">You currently have</span><br><br><br>
+<a href="#" class="button big" onclick="displayChoices();console.log('hi');" id="interestbutton">YOUR INTERESTS</a>
+</section>
+<section id = "themes">
+<h1>Choose some interests.</h1>
 </section>
 </body>
 </html>
