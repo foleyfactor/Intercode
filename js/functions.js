@@ -76,8 +76,11 @@ function loadLesson() {
   var unitID = getUnit();
   ref.once('value', function(snapshot) {
     title = snapshot.child("units").child(unitID).child("name").val();
+    var checkForExisting = snapshot.child("users").child("")
     text = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("text").val();
+    text = text.format
     code = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
+    code = code.format({a: generateWord(themes['cars'])});
     myCodeMirror.setValue(code);
     consoleOut.setValue("Output goes here!");
     console.log(text);
@@ -135,7 +138,7 @@ function getUnit() {
   return JSON.parse(localStorage.getItem("unit"));
 }
 
-function next(uid) {
+function next() {
   lessonID ++;
   ref.once('value', function(snapshot) {
     if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() < lessonID) {
@@ -148,3 +151,16 @@ function next(uid) {
     }
   });
 }
+
+String.prototype.format = function (arguments) {
+    var this_string = '';
+    for (var char_pos = 0; char_pos < this.length; char_pos++) {
+        this_string = this_string + this[char_pos];
+    }
+
+    for (var key in arguments) {
+        var string_key = '{' + key + '}'
+        this_string = this_string.replace(new RegExp(string_key, 'g'), arguments[key]);
+    }
+    return this_string;
+};
