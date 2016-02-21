@@ -43,7 +43,7 @@
       "text" : "One of the most powerful programming principles is the <a href='https://en.wikipedia.org/wiki/Don%27t_repeat_yourself'>don't repeat yourself</a> principle. To summarize, if you need to write the same code many times, there is a better way to do it. Check out the code below."
     },
       {
-      "code" : "def f(x):\n  print((4*x+3)/2)\n\n{a}=1\n{b}=2\n{c}=3\n\nf({a}))\nf({b})\nf({c})",
+      "code" : "def f(x):\n  print((4*x+3)/2)\n\n{a}=1\n{b}=2\n{c}=3\n\nf({a})\nf({b})\nf({c})",
       "input" : [ "" ],
       "output" : [ "" ],
       "text" : "In the last example, we were doing a series of mathematical operations repeatedly to different variables. In math, we call this a function. You might recognize the function earlier as being equivalent to <em>f(x)=(4x+3)/2</em>. So, let's try to represent that in code. Check it out."
