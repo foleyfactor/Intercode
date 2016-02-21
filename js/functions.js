@@ -168,7 +168,7 @@ function saveCode() {
   var unitID = getUnit();
   var code = myCodeMirror.getValue();
   autosaved();
-  ref.child("users").child(uid).child("units").child(unitID).child("lessons").child("code").set(code);
+  ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("code").set(code);
 }
 
 function autosaved() {
