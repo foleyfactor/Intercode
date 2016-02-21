@@ -28,6 +28,7 @@ $(document).ready(function(){
 				if (error) {
 					console.log("Login Failed!", error);
 				} else {
+					ref.child("users").child(ref.getAuth().uid).child("active").push().set("default");
 					window.location.replace("learning.html");
 			  	}
 			});

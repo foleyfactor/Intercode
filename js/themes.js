@@ -1,6 +1,7 @@
 var themes = {
 	animals: 	 ["aardvark", "butterfly", "chameleon", "lizard", "donkey", "giraffe", "moose", "dolphin", "narwhal", "kangaroo"],
 	cats:	 	 ["tabby", "kitten", "lion", "cheetah", "leopard", "tiger", "shorthair", "ragdoll", "himilayan", "persian"],
+	default: 	 ["shoe", "pencil", "pet", "brother", "teacher", "student", "boss", "employee", "rock", "water"],
 	dogs:	 	 ["bulldog", "husky", "collie", "lab", "poodle", "boxer", "rottweiler", "chihuahua", "daschund", "beagle"],
 	fish:	 	 ["goldfish", "salmon", "haddock", "halibut", "betta fish", "flying fish", "marlin", "sailfish", "piranha", "koi"],
 	athletes: 	 ["defenseman", "linebacker", "goalie", "midfielder", "centerman", "right-winger", "captain", "coach", "rival", "point guard"],

@@ -9,7 +9,7 @@ $(document).ready(function(){
 	ref.once("value", function(snapshot){
 		activeThemes = snapshot.child("users").child(uid).child("active").val();
 		populateThemes(activeThemes);
-	})
+	});
 	
 });
 
@@ -23,6 +23,9 @@ function closeChoices(){
 }
 function populateThemes(active){
 	for (var theme in themes){
+		if(theme=="default"){
+			continue;
+		}
 		var isActive = false;
 		for(var key in active){
 			if (active[key]==theme){

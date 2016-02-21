@@ -21,7 +21,6 @@ $(document).ready(function(){
 			var theme = snapshot.child("users").child(uid).child('units').child(i).child('theme').val();
 			if (!theme) {
 				var active = snapshot.child("users").child(uid).child("active").val();
-				console.log(active);
 				theme = generateUnit(objectToList(active));
 				ref.child("users").child(uid).child('units').child(i).child('theme').set(theme);
 			}
