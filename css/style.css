@@ -353,3 +353,14 @@ Autosave
 	font-size: 1.5em;
 	display: none;
 }
+
+/**
+Next button
+**/
+#next {
+	margin: 0px auto;
+	padding:  0.5em 2em;
+}
+#next-wrapper {
+	text-align: center;
+}
