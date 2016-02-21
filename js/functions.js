@@ -150,7 +150,7 @@ function getUnit() {
   return JSON.parse(localStorage.getItem("unit"));
 }
 
-function next(uid) {
+function next() {
   lessonID ++;
   ref.once('value', function(snapshot) {
     if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() < lessonID) {
