@@ -69,8 +69,8 @@
     },
       {
       "code" : "#Make an array called {a}. This array should contain 3 strings: \"{b}\", \"{c}\", and \"{d}\".\n\n\n\n{e} = [1, 2, 3, 4]\n#Print out the first element of {e}.\n\n\n{f} = [10, 20, \"{g}\", 40]\n#Print the index of {g} in the array {f}\n\n",
-      "input" : [ ".index" ],
-      "output" : [ "3" ],
+      "input" : [ ".index", "[0]", "{a}" ],
+      "output" : [ "1", "'{b}'",  "'{c}'", "'{d}'", "2"],
       "text" : "Let's recap! Try following the instructions in the editor below:"
     }
     ],
