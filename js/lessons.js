@@ -8,12 +8,10 @@ $(document).ready(function(){
 	var level;
 	ref.once("value", function(snapshot){
 		level = snapshot.child("users").child(uid).child("unlocked").val();
-	});
-	if(!level){
-		ref.child("users").child(uid).child("unlocked").set(1);
-		level = 1;
-	}
-	ref.once("value", function(snapshot){
+		if(!level){
+			ref.child("users").child(uid).child("unlocked").set(1);
+			level = 1;
+		}
 		$("#main").css("display", "block");
 		$(".spinner").css("display", "none");
 		for (var i = 1; i <= level; i++) {

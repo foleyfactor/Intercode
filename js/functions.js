@@ -71,12 +71,14 @@ function runit() {
     if (verifyLesson(inputVerify, outputVerify)) {
       $('#next').css('display', 'inline-block');
 
-      if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() === lessonID) {
-        $("#next").text("Finish");
+      if (snapshot.child("units").child(unitID).child("lessons").numChildren() === lessonID) {
+        $("#next").text("FINISH");
       }
-      console.log(snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").val())
       if(!snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").val()){
         addPoints(snapshot.child("units").child(unitID).child("difficulty").val());
+        if (snapshot.child("units").child(unitID).child("lessons").numChildren() == lessonID) {
+          addLevel();
+        }
       }
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").set(true);
     } else {
@@ -102,6 +104,13 @@ function addPoints(difficulty){
     togglePoints();
     window.setTimeout(togglePoints, 2000);
 
+  });
+}
+
+function addLevel(){
+  ref.once("value", function(snapshot){
+    var current = snapshot.child("users").child(uid).child("unlocked").val();
+    ref.child("users").child(uid).child("unlocked").set(current+1);
   });
 }
 
@@ -214,8 +223,8 @@ function next() {
   ref.once('value', function(snapshot) {
     if (snapshot.child('units').child(unitID).child('lessons').numChildren() < lessonID) {
       window.location.replace("learning.html");
-    } else if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() === lessonID) {
-      $('#next').text("Finish");
+    } else if (snapshot.child("units").child(unitID).child("lessons").numChildren() === lessonID) {
+      $('#next').text("FINISH");
       loadLesson();
       dataSaver = window.setInterval(saveCode, 10000);
     } else {
