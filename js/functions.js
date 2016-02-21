@@ -234,7 +234,6 @@ function next() {
     if (snapshot.child('units').child(unitID).child('lessons').numChildren() < lessonID) {
       window.location.replace("learning.html");
     } else if (snapshot.child("units").child(unitID).child("lessons").numChildren() === lessonID) {
-      $('#next').text("FINISH");
       loadLesson();
       dataSaver = window.setInterval(saveCode, 10000);
     } else {

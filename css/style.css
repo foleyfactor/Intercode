@@ -68,7 +68,6 @@ Main splash page
 	font-weight: 300;
 	text-align: center;
 	width: 100vw;
-	line-height: 25vh;
 	color: white;
 }
 .descriptor a:visited, .descriptor a {
