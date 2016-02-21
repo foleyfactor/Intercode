@@ -1,8 +1,9 @@
 var ref = new Firebase("https://intercoding.firebaseio.com");
 var uid = ref.getAuth().uid;
-$(window).bind('beforeunload', function() {
-  ref.child("users").child(uid).child("units").child(getUnit()).child("lessons").child(lessonID).child('code').set(prog);
-  return true;
+var dataSaver = window.setInterval(saveCode, 10000);
+
+$(window).on('unload', function() {
+  window.clearInterval(dataSaver);
 });
 
 var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("yourcode"), {
@@ -76,11 +77,22 @@ function loadLesson() {
   var unitID = getUnit();
   ref.once('value', function(snapshot) {
     title = snapshot.child("units").child(unitID).child("name").val();
-    var checkForExisting = snapshot.child("users").child("")
-    text = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("text").val();
-    text = text.format
-    code = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
-    code = code.format({a: generateWord(themes['cars'])});
+    var generatedWord = "c";
+    var existingText = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("text").val();
+    var existingCode = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
+    if (! existingText) {
+      text = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("text").val();
+      text = text.format({a: generatedWord});
+      ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("text").set(text);
+    } else {
+      text = existingText;
+    }
+    if (! existingCode) {
+      code = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
+      code = code.format({a: generatedWord});
+    } else {
+      code = existingCode;
+    }
     myCodeMirror.setValue(code);
     consoleOut.setValue("Output goes here!");
     console.log(text);
@@ -150,6 +162,22 @@ function next() {
       loadLesson(uid);
     }
   });
+}
+
+function saveCode() {
+  var unitID = getUnit();
+  var code = myCodeMirror.getValue();
+  autosaved();
+  ref.child("users").child(uid).child("units").child(unitID).child("lessons").child("code").set(code);
+}
+
+function autosaved() {
+  toggle();
+  window.setTimeout(toggle, 2000);
+}
+
+function toggle() {
+  $("#autosave").fadeToggle(1500);
 }
 
 String.prototype.format = function (arguments) {
