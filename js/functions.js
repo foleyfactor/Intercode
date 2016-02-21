@@ -35,7 +35,6 @@ function runit() {
    var mypre = document.getElementById("youroutput");
 
    var unitID = getUnit();
-   console.log(unitID);
 
    if (!ref.getAuth()) {
      window.location.replace("index.html");
@@ -61,14 +60,16 @@ function runit() {
    ref.once('value', function(snapshot) {
     var temp = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).val();
     outputVerify = temp['output'];
-    console.log(outputVerify);
     inputVerify = temp['input'];
-    console.log(inputVerify);
     if (verifyLesson(inputVerify, outputVerify)) {
       $('#next').css('display', 'inline-block');
 
       if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() === lessonID) {
         $("#next").text("Finish");
+      }
+      console.log(snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").val())
+      if(!snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").val()){
+        addPoints(snapshot.child("units").child(unitID).child("difficulty").val());
       }
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").set(true);
     } else {
@@ -76,6 +77,25 @@ function runit() {
     }
    });
    
+}
+
+function addPoints(difficulty){
+  var points;
+  if(difficulty=="BEGINNER"){
+    points = 5;
+  } else if (difficulty=="INTERMEDIATE"){
+    points = 10;
+  } else {
+    points = 25;
+  }
+  ref.once("value", function(snapshot){
+    var current = snapshot.child("users").child(uid).child("score").val();
+    ref.child("users").child(uid).child("score").set(current+points);
+    $("#points").text("+"+points+" points");
+    togglePoints();
+    window.setTimeout(togglePoints, 2000);
+
+  });
 }
 
 function loadLesson() {
@@ -123,7 +143,6 @@ function loadLesson() {
 
     myCodeMirror.setValue(code);
     consoleOut.setValue("Output goes here!");
-    console.log(text);
     $("header h1").text(title);
     $("#lesson-text").html(text);
     $(".spinner").css("display", "none");
@@ -136,7 +155,6 @@ function loadLesson() {
 function verifyLesson(inp, out) {
   var codeOut = consoleOut.getValue();
   var codeIn = myCodeMirror.getValue();
-  console.log()
   for (var i=0; i<out.length; i++) {
     var includes = true;
     var check = out[i];
@@ -184,7 +202,6 @@ function next() {
   unitID = getUnit();
   lessonID ++;
   ref.once('value', function(snapshot) {
-    console.log(snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren());
     if (snapshot.child('units').child(unitID).child('lessons').numChildren() < lessonID) {
       window.location.replace("learning.html");
     } else if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() === lessonID) {
@@ -213,7 +230,9 @@ function autosaved() {
 function toggle() {
   $("#autosave").fadeToggle(1500);
 }
-
+function togglePoints() {
+  $("#points").fadeToggle(1500);
+}
 String.prototype.format = function (arguments) {
     var this_string = '';
     for (var char_pos = 0; char_pos < this.length; char_pos++) {

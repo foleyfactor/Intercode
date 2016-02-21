@@ -7,10 +7,10 @@ $(document).ready(function(){
 	uid = ref.getAuth().uid;
 	var level;
 	ref.once("value", function(snapshot){
-		level = snapshot.child("users").child(uid).child("completed").val();
+		level = snapshot.child("users").child(uid).child("unlocked").val();
 	});
 	if(!level){
-		ref.child("users").child(uid).child("completed").set(1);
+		ref.child("users").child(uid).child("unlocked").set(1);
 		level = 1;
 	}
 	ref.once("value", function(snapshot){

@@ -345,9 +345,8 @@ Choosing Themes
 /**
 Autosave
 **/
-#autosave {
+.notification {
 	position: fixed;
-	bottom: 10px;
 	right: 10px;
 	color: rgba(76,175,80,.54);
 	background-color: rgba(76,175,80,.12);
@@ -358,6 +357,12 @@ Autosave
 	padding: 0.3em 0.5em;
 	font-size: 1.5em;
 	display: none;
+}
+#autosave {
+	bottom: 10px;
+}
+#points {
+	bottom: 2.5em;
 }
 
 /**
