@@ -66,6 +66,10 @@ function runit() {
     console.log(inputVerify);
     if (verifyLesson(inputVerify, outputVerify)) {
       $('#next').css('display', 'inline-block');
+
+      if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() === lessonID) {
+        $("#next").text("Finish");
+      }
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").set(true);
     } else {
       notQuite();
@@ -110,8 +114,6 @@ function loadLesson() {
       input = existingInput;
       output = existingOutput;
     }
-
-
 
     if (alreadyCompleted) {
       $("#next").css("display", "inline-block");
