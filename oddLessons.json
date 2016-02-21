@@ -21,7 +21,7 @@
     },
     	{
       "code" : "{a} = [1,2,3]\n{b} = [4,5,6]\n{c} = [7,8,9]\n\n{d}=[{a},{b},{c}]\nprint({d}[0][0])",
-      "input" : [ "[2][1]" ],
+      "input" : [ "[2]","[1]" ],
       "output" : [ "8" ],
       "text" : "Time for you to try it out! Make it print the second element of the third array."
     },
@@ -33,4 +33,39 @@
     }
     ],
     "name" : "2D Arrays"
+}
+{
+    "difficulty" : "INTERMEDIATE",
+    "lessons" : [ null, {
+      "code" : "{a}=1\n{b}=2\n{c}=3\n\nprint((4*{a}+3)/2)\nprint((4*{b}+3)/2)\nprint((4*{c}+3)/2)",
+      "input" : [],
+      "output" : [],
+      "text" : "One of the most powerful programming principles is the <a href='https://en.wikipedia.org/wiki/Don%27t_repeat_yourself'>don't repeat yourself</a> principle. To summarize, if you need to write the same code many times, there is a better way to do it. Check out the code below."
+    },
+      {
+      "code" : "def f(x):\n  print((4*x+3)/2)\n\n{a}=1\n{b}=2\n{c}=3\n\nf({a}))\nf({b})\nf({c})",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "In the last example, we were doing a series of mathematical operations repeatedly to different variables. In math, we call this a function. You might recognize the function earlier as being equivalent to <em>f(x)=(4x+3)/2</em>. So, let's try to represent that in code. Check it out."
+    },
+      {
+      "code" : "def average (a,b):\n  return (a+b)/2\n\ndef f(x):\n  print((4*x+3)/2)\n\n{e}=1\n{f}=2\n\n{g}=average({e},{f})\nprint({g})\nf({e})",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "A function can either return a value or not. If it returns a value, it's called a function. If it doesn't, it's called a method. Returning a value just means that the outcome of a function can be assigned to a variable. In the code above, f(x) is a method while average(a,b) is a function."
+    },
+      {
+      "code" : "def greater (a,b):\n  #Your code here\n\n{f}=4\n{g}=6\n\n{h}=greater({f},{g})\nprint({h})",
+      "input" : [ "return" ],
+      "output" : [ "False" ],
+      "text" : "Time for you to try it out! Edit the function above to return True if a>b, and False if otherwise."
+    },
+      {
+      "code" : "def hypotenuseLength (a, b):\n  #Your code here!\n\n{b}=\n{e}=\n\n{a}=hypotenuseLength({b},{e})\nprint({a})",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "Your turn to show what you've learned! I'm thinking you should make a function that calculates the length hypotenuse of a right triangle given the other two side lengths (pythagorean theorem)! To do this, it'll be useful to know that you can square numbers in python by typing <em>a**2</em>, and square root by typing <em>a**1/2</em> (where a is a number)."
+    }
+    ],
+    "name" : "Introduction to Functions"
 }
