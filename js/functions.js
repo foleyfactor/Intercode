@@ -81,7 +81,7 @@ function loadLesson() {
   ref.once('value', function(snapshot) {
     title = snapshot.child("units").child(unitID).child("name").val();
     var currTheme = snapshot.child("users").child(uid).child('units').child(unitID).child('theme').val();
-    var generatedWord = generateWord(themes[currTheme]);
+    var generatedArray = generateArray(themes[currTheme]);
     var existingText = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("text").val();
     var existingCode = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
     var existingInput = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("input").val();
@@ -89,19 +89,19 @@ function loadLesson() {
     var alreadyCompleted = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").val();
     if (! existingText) {
       text = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("text").val();
-      text = text.format({a: generatedWord});
+      text = text.format({a: generatedArray[0], b: generatedArray[1], c: generatedArray[2], d: generatedArray[3], e: generatedArray[4], f: generatedArray[5], g: generatedArray[6], h: generatedArray[7], i: generatedArray[8], j: generatedArray[9]});
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("text").set(text);
       code = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
-      code = code.format({a: generatedWord});
+      code = code.format({a: generatedArray[0], b: generatedArray[1], c: generatedArray[2], d: generatedArray[3], e: generatedArray[4], f: generatedArray[5], g: generatedArray[6], h: generatedArray[7], i: generatedArray[8], j: generatedArray[9]});
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("code").set(code);
       input = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("input").val();
       for (var i=0; i<input.length; i++) {
-        input[i] = input[i].format({a: generatedWord})
+        input[i] = input[i].format({a: generatedArray[0], b: generatedArray[1], c: generatedArray[2], d: generatedArray[3], e: generatedArray[4], f: generatedArray[5], g: generatedArray[6], h: generatedArray[7], i: generatedArray[8], j: generatedArray[9]});
       }
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("input").set(input);
       output = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("output").val();
       for (var i=0; i<output.length; i++) {
-        output[i] = output[i].format({a: generatedWord})
+        output[i] = output[i].format({a: generatedArray[0], b: generatedArray[1], c: generatedArray[2], d: generatedArray[3], e: generatedArray[4], f: generatedArray[5], g: generatedArray[6], h: generatedArray[7], i: generatedArray[8], j: generatedArray[9]});
       }
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("output").set(output);
     } else {
@@ -111,8 +111,12 @@ function loadLesson() {
       output = existingOutput;
     }
 
+
+
     if (alreadyCompleted) {
       $("#next").css("display", "block");
+    } else {
+      $("#next").css("display", "none");
     }
 
     myCodeMirror.setValue(code);
@@ -179,7 +183,7 @@ function next() {
   lessonID ++;
   ref.once('value', function(snapshot) {
     console.log(snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren());
-    if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() < lessonID) {
+    if (snapshot.child('units').child(unitID).child('lessons').numChildren() < lessonID) {
       window.location.replace("learning.html");
     } else if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() === lessonID) {
       $('#next').text("Finish");
