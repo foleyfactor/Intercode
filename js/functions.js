@@ -65,27 +65,44 @@ function runit() {
    })
 
    if (verifyLesson(inputVerify, outputVerify)) {
-      //do stuff if the lesson is correct.
+      $('#next').css('display', 'block');
+      ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").set(true);
    } else {
-      //tell them they're wrong
+      notQuite();
    }
 }
 
 function loadLesson() {
   var uid = ref.getAuth().uid;
-  var text, code,title;
+  var text, code, title, output, input, alreadyCompleted;
   var unitID = getUnit();
   ref.once('value', function(snapshot) {
     title = snapshot.child("units").child(unitID).child("name").val();
-    var generatedWord = "c";
+    var currTheme = snapshot.child("users").child(uid).child('units').child(unitID).child('theme').val();
+    var generatedWord = generateWord(themes[currTheme]);
     var existingText = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("text").val();
     var existingCode = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
+    var existingInput = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("input").val();
+    var existingOutput = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("output").val();
+    var alreadyCompleted = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").val();
     if (! existingText) {
       text = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("text").val();
       text = text.format({a: generatedWord});
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("text").set(text);
+      code = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
+      code = code.format({a: generatedWord});
+      ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("code").set(code);
+      input = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("input").val();
+      input = input.format({a: generatedWord});
+      ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("input").set(input);
+      output = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("output").val();
+      output = output.format({a: generatedWord});
+      ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("output").set(output);
     } else {
       text = existingText;
+      code = existingCode;
+      input = existingInput;
+      output = existingOutput;
     }
     if (! existingCode) {
       code = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
@@ -93,6 +110,23 @@ function loadLesson() {
     } else {
       code = existingCode;
     }
+    if (! existingInput) {
+      input = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("input").val();
+      input = input.format({a: generatedWord});
+    } else {
+      input = existingInput;
+    }
+    if (! existingOutput) {
+      output = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("output").val();
+      output = output.format({a: generatedWord});
+    } else {
+      output = existingOutput;
+    }
+
+    if (alreadyCompleted) {
+      $("#next").css("display", "block");
+    }
+
     myCodeMirror.setValue(code);
     consoleOut.setValue("Output goes here!");
     console.log(text);
@@ -157,9 +191,9 @@ function next() {
       window.location.replace("learning.html");
     } else if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() === lessonID) {
       $('#next').text("Finish");
-      loadLesson(uid);
+      loadLesson();
     } else {
-      loadLesson(uid);
+      loadLesson();
     }
   });
 }
@@ -193,4 +227,11 @@ String.prototype.format = function (arguments) {
     return this_string;
 };
 
-
+$("#next").on('click', function() {
+  if ($(this).text() === "Finish") {
+    window.location.href("learning.html");
+  } else {
+    lessonID++;
+    loadLesson();
+  }
+});
