@@ -12,6 +12,12 @@ Global/Material styles
 	border: 0px;
 	outline: 0px;
 	font-family: Roboto, sans-serif;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	-o-user-select: none;
+	user-select: none;
+	cursor: pointer;
 }
 .button.big {
 	font-size: 1.15em;
@@ -208,7 +214,7 @@ Menu
 	margin: 0px 20px;
 	font-weight: 300;
 	display: block;
-	cursor: 
+	cursor: pointer; 
 }
 #menu {
 	position: fixed;
