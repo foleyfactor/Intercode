@@ -31,12 +31,13 @@ Global/Material styles
 	font-family: Roboto, sans-serif;
 }
 
+
 /**
 Main splash page
 **/
 #mainheader {
 	text-align: center;
-	min-height: 65vh;
+	min-height: 75vh;
 	color: white;
 	box-shadow: initial;
 }
@@ -45,7 +46,7 @@ Main splash page
 	margin-left: 0px;
 	padding: 0px;
 	font-size: 4em;
-	line-height: 25vh;
+	line-height: 40vh;
 }
 #mainheader h2 {
 	opacity: 0.57;
@@ -54,6 +55,24 @@ Main splash page
 }
 #getstarted {
 	margin-top: 5em;
+}
+.descriptor-wrapper {
+	background-color:#9C27B0;
+	height: 25vh;
+	text-align: center;
+}
+.descriptor {
+	opacity: 0.32;
+	font-family: Roboto, sans-serif;
+	font-size: 1.2em;
+	font-weight: 300;
+	text-align: center;
+	width: 100vw;
+	line-height: 25vh;
+	color: white;
+}
+.descriptor a:visited, .descriptor a {
+	color: white;
 }
 
 /**
@@ -218,6 +237,7 @@ Menu
 	font-size: 2em;
 	z-index: ;
 	margin: 0px 20px;
+	opacity: 0.87;
 	font-weight: 300;
 	display: block;
 	cursor: pointer; 
@@ -342,6 +362,7 @@ Choosing Themes
 	border-radius: 1em;
 	margin: 10px 20px;
 	opacity: 0.87;
+	cursor: pointer;
 }
 #themes .theme.active {
 	background-color: #3F51B5;
