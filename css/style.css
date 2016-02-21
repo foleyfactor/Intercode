@@ -271,7 +271,7 @@ Profile
 	line-height: 3em;
 	font-weight: 300;
 }
-.points {
+.points, .ranking {
 	font-family: Roboto, sans-serif;
 	font-size: 1.5em;
 	line-height: 2em;

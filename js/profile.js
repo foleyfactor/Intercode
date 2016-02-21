@@ -11,6 +11,15 @@ $(document).ready(function(){
 			$(".points").append("<b> "+points+"</b> points.");
 			$("#profile-wrapper").css("display", "block");
 			$(".spinner").css("display", "none");
+			var users = snapshot.child("users").val();
+			var ranking = 1;
+			for (var key in users){
+				var user = users[key];
+				if (user.score>points){
+					ranking++
+				}
+			}
+			$(".ranking").append("<b>#"+ranking+"</b> in the world!")
 		});
 		
 	}
