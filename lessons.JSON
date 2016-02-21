@@ -1,7 +1,0 @@
-var lesson = {
-	input: "#This is a comment",
-	output: "Output goes here.",
-	inputVerify: ["!sample", "print"],
-	outputVerify: ["comment"],
-	lessonText: "Let's get started with comments. Come on!"
-};
