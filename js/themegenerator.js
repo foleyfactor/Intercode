@@ -1,7 +1,8 @@
 function generateUnit(activeThemes) {
 	var r = Math.floor(Math.random() * activeThemes.length);
 	var chosen = activeThemes[r];
-	if (activeTHemes.length > 1) {
+	console.log(activeThemes.length);
+	if (activeThemes.length > 1) {
 		while (chosen === 'default') {
 			r = Math.floor(Math.random() * activeThemes.length);
 			chosen = activeThemes[r];

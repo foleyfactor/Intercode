@@ -1,0 +1,53 @@
+<head>
+	<title>Intercode</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	<script type="text/javascript" src="js/jquery.lightbox_me.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<script>
+	function authJudges(){
+		ref.authWithPassword({
+			email: 		"hackathon@koding.com",
+			password: 	"hack"
+		}, function(err, authData) {
+			if (err) {
+				ref.createUser({
+					email: 		"hackathon@koding.com",
+					password: 	"hack"
+				}, function(error, userData){
+		  			if (error) {
+		    			console.log("Error creating user:", error);
+					} else {
+						authJudges();
+					}
+				})
+			} else {
+				ref.child("users").child(ref.getAuth().uid).child("active").push().set("default");
+				window.location.replace("learning.html");
+			}
+		}) 
+	}
+</script>
+</head>
+<body>
+<header id = "mainheader">
+	<h1>Intercode</h1>
+	<h2>The best way to learn coding is your way.</h2>
+	<br><br><br><br>
+	<a id="getstarted" class="button big">GET STARTED</a>
+</header>
+<section id = "signuparea">
+<h1>Let's do this.</h1>
+<br><br><br>
+<a class="button big" onclick="authJudges()">ENTER</a>
+<br><br><br>
+<br>
+<br>
+</section>
+
+</body>
+</html>
