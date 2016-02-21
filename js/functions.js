@@ -150,7 +150,7 @@ function getUnit() {
   return JSON.parse(localStorage.getItem("unit"));
 }
 
-function next() {
+function next(uid) {
   lessonID ++;
   ref.once('value', function(snapshot) {
     if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() < lessonID) {
@@ -162,6 +162,7 @@ function next() {
       loadLesson(uid);
     }
   });
+<<<<<<< HEAD
 }
 
 function saveCode() {
@@ -192,3 +193,6 @@ String.prototype.format = function (arguments) {
     }
     return this_string;
 };
+=======
+}
+>>>>>>> origin/master
