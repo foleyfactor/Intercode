@@ -36,6 +36,7 @@ Main splash page
 }
 #mainheader h1 {
 	text-align: center;
+	margin-left: 0px;
 	padding: 0px;
 	font-size: 4em;
 	line-height: 25vh;
