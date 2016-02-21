@@ -22,11 +22,11 @@
 		  			if (error) {
 		    			console.log("Error creating user:", error);
 					} else {
+						ref.child("users").child(ref.getAuth().uid).child("active").push().set("default");
 						authJudges();
 					}
 				})
 			} else {
-				ref.child("users").child(ref.getAuth().uid).child("active").push().set("default");
 				window.location.replace("learning.html");
 			}
 		}) 
