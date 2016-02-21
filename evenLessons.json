@@ -27,35 +27,54 @@
     }
     ]
 
-//Unit 4 - If statements
+//Unit 5 - Arrays
 {
     "difficulty" : "BEGINNER",
-    "lessons" : [ null, {
-      "code" : "#Your code here\nprint({a})",
+    "lessons" : [ null, 
+      {
+      "code" : "{a} = [1, 2, 3, 4]\nprint({a})",
       "input" : [ "" ],
-      "output" : [ "12" ],
-      "text" : "This is a test Does it work"
-    }
-    ]
-
-//Unit 6 - Loops
-{
-    "difficulty" : "BEGINNER",
-    "lessons" : [ null, {
-      "code" : "#Your code here\nprint({a})",
+      "output" : [ "" ],
+      "text" : "Another very important datatype is the <em>array</em>. An array is basically just a list of things. Look at the code below to see how we define an array. When you think you're ready to move on, click run to move on to the next lesson."
+    }, 
+      {
+      "code" : "",
+      "input" : [ "[", "]", "{a}", "{c}", "," ],
+      "output" : [ "[", "]", "{a}", "{c}", "," ],
+      "text" : "In order to make an array, we put square brackets ([]) around a number of objects, which are each separated by a comma.\n Now it's your turn! Type <b>{a}=[\"{c}\", \"{d}\", \"{e}\"]</b> and then, on the next line, <b>print({a})</b>."
+    },
+      {
+      "code" : "{a} = \nprint({a})",
+      "input" : [ "[", "]", "{a}", "," ],
+      "output" : [ "[", "]", ",", "'" ],
+      "text" : "Until now, all of the arrays have only had one datatype in them (i.e. all strings or all integers). Let's get fancy. Make an array with at least one string and at least one integer in it. We've gotten you started below."
+    },
+      {
+      "code" : "{a} = [1, 2, 3, 4]\nprint({a}[1])",
       "input" : [ "" ],
-      "output" : [ "12" ],
-      "text" : "This is a test Does it work"
+      "output" : [ "" ],
+      "text" : "Now that you're a pro at making arrays, let's move on to <em>accessing array values</em>. Look at the code and predict what you think will happen when you click \"Run\". Then, go ahead and click it."
+    },
+      {
+      "code" : "{a} = [1, 2, 3, 4]\n\n#Replace number with the right value in order to get the first object!\nprint({a}[number])",
+      "input" : [ "[0]" ],
+      "output" : [ "1" ],
+      "text" : "Is that what you expected? Probably not. We can use numbers to <em>access</em> array values. If we have an array called {a}, we can ask for a value by typing {a}[number] where the number is the position of the object that you want to get.\nThe only catch is that Computer Scientists decided to count beginning with 0, so if you want to access the first object, you'll need to ask for {a}[0].\nTry to <b>print</b> the first object in the array {a} below."
+    },
+      {
+      "code" : "{a} = [1, 2, 3, \"{b}\"]\n\n#Replace number with the right value in order to get the first object!\nprint({a}[number])",
+      "input" : [ ".index" ],
+      "output" : [ "3" ],
+      "text" : "What if we want to find what position an object is at in our array? Thats where the index function comes in!\nTry to <b>print {a}.index(\"{b}\") in the editor below."
+    },
+      {
+      "code" : "#Make an array called {a}. This array should contain 3 strings: \"{b}\", \"{c}\", and \"{d}\".\n\n\n\n{e} = [1, 2, 3, 4]\n#Print out the first element of {e}.\n\n\n{f} = [10, 20, \"{g}\", 40]\n#Print the index of {g} in the array {f}\n\n",
+      "input" : [ ".index" ],
+      "output" : [ "3" ],
+      "text" : "Let's recap! Try following the instructions in the editor below:"
     }
-    ]
+    ],
+    "name" : "Introduction to Arrays",
+  }
 
 //Unit 8 - Nested Loops
-{
-    "difficulty" : "INTERMEDIATE",
-    "lessons" : [ null, {
-      "code" : "#Your code here\nprint({a})",
-      "input" : [ "" ],
-      "output" : [ "12" ],
-      "text" : "This is a test Does it work"
-    }
-    ]

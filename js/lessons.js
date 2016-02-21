@@ -8,6 +8,7 @@ $(document).ready(function(){
 	var level;
 	ref.once("value", function(snapshot){
 		level = snapshot.child("users").child(uid).child("unlocked").val();
+		var numThemes = objectToList(snapshot.child("users").child(uid).child("active").val()).length;
 		if(!level){
 			ref.child("users").child(uid).child("unlocked").set(1);
 			level = 1;
@@ -23,6 +24,9 @@ $(document).ready(function(){
 				ref.child("users").child(uid).child('units').child(i).child('theme').set(theme);
 			}
 			createLesson(lesson.name, theme.toUpperCase(), lesson.difficulty, i);
+		}
+		if (numThemes === 1) {
+			displayChoices();
 		}
 	});
 });
