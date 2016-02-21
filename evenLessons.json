@@ -77,4 +77,70 @@
     "name" : "Introduction to Arrays",
   }
 
-//Unit 8 - Nested Loops
+//Unit 6 - Loops
+{
+    "difficulty" : "BEGINNER",
+    "lessons" : [ null, 
+      {
+      "code" : "for {a} in range(0, 10):\n\tprint(str({a}) + \" \")",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "The next big concept is loops. Loops are a very important part of programming because they make it easier to do things over and over. They also allow Computer Scientists to be lazier, and who doesn't love to be lazy?!\nNote: str(number) turns a number into a string so that we can print it more nicely.\nTry to predict what the code below will do when you run it. When you're ready, go ahead and click \"Run\" to move on."
+    }, 
+      {
+      "code" : "for {a} in range(0, 10):\n\tprint(str({a}) + \" \")\n\nfor {a} in range(10):\n\tprint(str({a}) + \" \")\n\nfor {a} in range(0, 10, 2):\n\tprint(str({a}) + \" \")for {a} in range(10, 0, -1):\n\tprint(str({a}) + \" \")",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "The code from the previous lesson is called a for loop. It works by running <em>for</em> a certain number of times. In Python, range is a special <em>function</em> that is very helpful for loops. Look at each of the following for loops, that each use the range function differently. When you are ready, \"Run\" to see what each of them do."
+    },
+     {
+      "code" : "#Enter a startNumber and a stopNumber for the loop in order to make it print out the numbers 1-10. Make sure you are careful of the stopNumber-1 thing!\nfor {a} in range(_, _):\n\tprint(str({a}) + \" \")",
+      "input" : [ "11", "for" ],
+      "output" : [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ],
+      "text" : "Python's <em>range</em> has three different uses:\nIf you enter range(number), Python will count up from 0 until number-1. It won't get all of the way to number.\nIf you enter range(startNumber, stopNumber), then Python will start at the startNumber and end with stopNumber-1.\nIf you enter range(startNumber, stopNumber, stepNumber), then Python will do the same thing as the second case, but count up by stepNumber each time.\nNow it's your turn! Fill in the blanks below:"
+    },
+      {
+      "code" : "#Enter a stopNumber for the loop in order to make it print out the numbers 0-5. Make sure you are careful of the stopNumber-1 thing!\nfor {a} in range(_):\n\tprint(str({a}) + \" \")",
+      "input" : [ "6", "for" ],
+      "output" : [ "1", "2", "3", "4", "5", "0" ],
+      "text" : "Fill in the blank below. Remember that range(stopNumber) goes from 0 to stopNumber-1!"
+    },
+      {
+      "code" : "#Enter a startNumber, stopNumber, and stepNumber for the loop in order to make it print out the even numbers from 0-10. Make sure you make stopNumber 1 more than 10.\nfor {a} in range(_, _, _):\n\tprint(str({a}) + \" \")",
+      "input" : [ "2", "for" ],
+      "output" : [ "2", "6", "8", "4", "10", "0" ],
+      "text" : "Fill in the blank below. Remember that range(startNumber, stopNumber, stepNumber) starts at startNumber and goes up by stepNumber!\nHint: make sure stopNumber is 1 bigger than what you want it to end on."
+    },
+      {
+      "code" : "#Enter a startNumber, stopNumber, and stepNumber for the loop in order to make it print out the even numbers from 0-10. Make sure you make stopNumber 1 more than 10.\nfor {a} in range(_, _, _):\n\tprint(str({a}) + \" \")",
+      "input" : [ "for", "range" ],
+      "output" : [ "" ],
+      "text" : "Now the training wheels are off! Make your own loop from scratch. It can do anything you want, but make sure that you use Python's range function. Also, make sure that you <em>indent</em> (either click tab or click space 4 times) whatever code you want to be run by your loop!!"
+    },
+      {
+      "code" : "{a} = 0\nwhile {a} < 10:\n\tprint(str({a}) + \" \")\n\t{a} = {a} + 1",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "For loops are great, but what happens if you don't know how many times your loop is going to run? Don't worry, Python has that covered; introducing the <em>while loop</em>! Click \"Run\" below to see what the while loop does."
+    },
+      {
+      "code" : "{a} = 1\nwhile {a}*{a} < 1000:\n\t{a} = {a} + 1\n\nprint(\"The biggest square less than 1000 is: \" + str({a}))",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "While loops work by running until a <em>condition</em> is no longer True. We write them by typing <b>while condition: doStuff</b>. Be careful that the condition can change to False, though, because if you don't, you get an <em>infinite loop</em> which will crash your browser.\nNote: {a} = {a} + 1 just increases the value of {a} by 1.\nLook at the code below and see if you can guess what it does. Then click \"Run\"."
+    },
+      {
+      "code" : "",
+      "input" : [ "while", ":"],
+      "output" : [ "" ],
+      "text" : "Now it's your turn! Write a while loop that does something cool. The computer is your oyster.\nNote: remember to make sure that your while loop can end. Infinite loops will crash your browser."
+    }
+      {
+      "code" : "#Note that \\n just makes a new line.\n{a} = [\"{b}\", \"{c}\", \"{d}\", \"{e}\", \"{f}\", \"{g}\", \"{h}\", \"{i}\" ]\nfor {j} in range(8):\n\tprint(str({a}[{j}] + \"\\n\")",
+      "input" : [""],
+      "output" : [ "" ],
+      "text" : "Congratulations! You're now a looping master. Check out the for loop below and click \"Run\" when you're ready. When you feel ready, click finished.\nWant practice? Try to use loops to program the following:\nPrint the biggest square number less than a million.\nCount backwards from 100 (hint: use stepNumber = -1 do go down by 1 each time)."
+    }
+    ],
+    "name" : "Introduction to Loops",
+  }
