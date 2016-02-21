@@ -8,6 +8,9 @@ $(document).ready(function(){
 		$(".welcome").append("<b> "+ref.getAuth().password.email+"</b>.");
 		ref.once("value", function(snapshot){
 			points=snapshot.child("users").child(ref.getAuth().uid).child("score").val();
+			if(!points){
+				points=0
+			}
 			$(".points").append("<b> "+points+"</b> points.");
 			$("#profile-wrapper").css("display", "block");
 			$(".spinner").css("display", "none");
