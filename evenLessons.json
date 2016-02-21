@@ -1,0 +1,61 @@
+//Unit 2 - Intro to variables
+{
+    "difficulty" : "BEGINNER",
+    "lessons" : [ null, {
+      "code" : "#Your code here\n\n\nprint({a})",
+      "input" : [ "{a}" ],
+      "output" : [ "10" ],
+      "text" : "You've probably heard about variables before in math class. Remember the whole \"Given 2x=8, solve for x.\" thing? Programming has variables too. Let's try creating a variable called <b>{a}</b>.\nType <b>{a}=10</b> in the editor below."
+    },
+    	{
+      "code" : "{a} = 0\n\n#Change the variable's value below:\n\n\nprint({a})",
+      "input" : [ "" ],
+      "output" : [ "5" ],
+      "text" : "Giving a variable a value is called <em>assignment</em>. Sometimes we want to update a variable's value if something happens. This is fairly easy, all we have to do is <em>assign</em> it a new value.\nTry typing <b>{a} = 5</b> on line 4 below, and see what gets printed out!"
+    },
+    	{
+      "code" : "print({a})",
+      "input" : [ "" ],
+      "output" : [ "NameError" ],
+      "text" : "Before we can use a variable, it must be <em>instantiated</em>. This is just a big fancy word for \"created\". If you don't instantiate your variable, Python will throw an error.\nClick the run button to see what happens when we try to print the value of {a} without creating it first."
+    },
+    	{
+      "code" : "{a} = 10\n{b} = 5\n\n#Add the two here:\nprint({a} _ {b})\n\n#Subtract the two here:\nprint({a} _ {b})\n\n#Multiply the two here:\nprint({a} _ {b})\n\n#Divide the two here:\nprint({a} _ {b})",
+      "input" : [ "" ],
+      "output" : [ "15", "5", "2", "50" ],
+      "text" : "We can also perform <em>operations</em> with variables. Python has a lot of built in funtions to do this. The following signs can be used to perform operations:\n+ (addition), - (subtraction), * (multiplication), and / (division).\nReplace the blanks below with the correct <em>operators</em>."
+    }
+    ]
+
+//Unit 4 - If statements
+{
+    "difficulty" : "BEGINNER",
+    "lessons" : [ null, {
+      "code" : "#Your code here\nprint({a})",
+      "input" : [ "" ],
+      "output" : [ "12" ],
+      "text" : "This is a test Does it work"
+    }
+    ]
+
+//Unit 6 - Loops
+{
+    "difficulty" : "BEGINNER",
+    "lessons" : [ null, {
+      "code" : "#Your code here\nprint({a})",
+      "input" : [ "" ],
+      "output" : [ "12" ],
+      "text" : "This is a test Does it work"
+    }
+    ]
+
+//Unit 8 - Nested Loops
+{
+    "difficulty" : "INTERMEDIATE",
+    "lessons" : [ null, {
+      "code" : "#Your code here\nprint({a})",
+      "input" : [ "" ],
+      "output" : [ "12" ],
+      "text" : "This is a test Does it work"
+    }
+    ]
