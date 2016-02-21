@@ -106,20 +106,20 @@ Lesson List
 	float: right;
 	margin: 0px 2px;
 }
-.theme {
+.tag.theme {
 	color: rgba(0,0,0,0.54);
 	background-color: rgba(0,0,0,0.12);
 	opacity: 0.87;
 }
-.BEGINNER {
+.tag.BEGINNER {
 	color: rgba(76,175,80,.54);
 	background-color: rgba(76,175,80,.12);
 }
-.INTERMEDIATE {
+.tag.INTERMEDIATE {
 	color: rgba(220,231,117,.95);
 	background-color: rgba(220,231,117,.32);
 }
-.HARD {
+.tag.HARD {
 	color: rgba(255,0,0,.54);
 	background-color: rgba(255,0,0,.12);
 }
@@ -299,4 +299,35 @@ Loading
     transform: scale(1.0);
     opacity: 0;
   }
+}
+
+/**
+Choosing Themes
+**/
+#themes {
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+	display: none;
+	width: 60%;
+	background-color: white;
+	border-radius: 0.2em;
+	text-align: center;
+}
+#themes h1 {
+	font-weight: 300;
+	font-size: 3em;
+	margin: 20px 0px;
+}
+#themes .theme {
+	display: inline-block;
+	padding: 5px 15px;
+	font-size: 1.3em;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 1em;
+	margin: 10px 20px;
+	opacity: 0.87;
+}
+#themes .theme.active {
+	background-color: #3F51B5;
+	color: white;
 }
