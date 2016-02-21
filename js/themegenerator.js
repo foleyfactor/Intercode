@@ -1,6 +1,13 @@
 function generateUnit(activeThemes) {
 	var r = Math.floor(Math.random() * activeThemes.length);
-	return activeThemes[r];
+	var chosen = activeThemes[r];
+	if (activeTHemes.length > 1) {
+		while (chosen === 'default') {
+			r = Math.floor(Math.random() * activeThemes.length);
+			chosen = activeThemes[r];
+		}
+	}
+	return chosen;
 }
 
 function generateArray(theme) {
