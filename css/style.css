@@ -119,7 +119,7 @@ Lesson List
 }
 .lessonitemright {
 	line-height: 15vh;
-	width: 40vw;
+	width: 20vw;
 }
 .lessonitemright .button {
 	margin-left: 20px;
@@ -218,7 +218,7 @@ form {
 	box-shadow: initial;
 }
 #editor-wrapper .CodeMirror {
-	height: 40%;
+	height: 35%;
 }
 #console-wrapper .CodeMirror{
 	margin-top: 20px;
