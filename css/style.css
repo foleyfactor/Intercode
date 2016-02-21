@@ -132,6 +132,8 @@ Login area
 	width: 50vw;
 	border-radius: .2em;
 	text-align: center;
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
 }
 #loginarea h1 , #signuparea h1{
 	text-align: center;
@@ -331,4 +333,22 @@ Choosing Themes
 #themes .theme.active {
 	background-color: #3F51B5;
 	color: white;
+}
+
+/**
+Autosave
+**/
+#autosave {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	color: rgba(76,175,80,.54);
+	background-color: rgba(76,175,80,.12);
+	border: 1px solid rgba(76,175,80,.32);
+	border-radius: 0.2em;
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+	padding: 0.3em 0.5em;
+	font-size: 1.5em;
+	display: none;
 }
