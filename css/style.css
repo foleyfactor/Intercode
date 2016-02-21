@@ -403,6 +403,7 @@ Autosave
 	padding: 0.3em 0.5em;
 	font-size: 1.5em;
 	display: none;
+	opacity: 0.87;
 }
 #autosave {
 	bottom: 10px;
@@ -421,6 +422,18 @@ Next button
 #next-wrapper {
 	text-align: center;
 }
+
+/**
+Verifying
+**/
+.verifying {
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+	font-size: 0.8em;
+	opacity: 0.57;
+	display: none;
+}
+
 
 /**
 Wrong notification 

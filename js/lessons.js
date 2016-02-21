@@ -8,26 +8,32 @@ $(document).ready(function(){
 	var level;
 	ref.once("value", function(snapshot){
 		level = snapshot.child("users").child(uid).child("unlocked").val();
-		var numThemes = objectToList(snapshot.child("users").child(uid).child("active").val()).length;
 		if(!level){
 			ref.child("users").child(uid).child("unlocked").set(1);
 			level = 1;
 		}
-		$("#main").css("display", "block");
-		$(".spinner").css("display", "none");
-		for (var i = 1; i <= level; i++) {
-			var lesson = snapshot.child("units").child(i).val();
-			var theme = snapshot.child("users").child(uid).child('units').child(i).child('theme').val();
-			if (!theme) {
-				var active = snapshot.child("users").child(uid).child("active").val();
-				theme = generateUnit(objectToList(active));
-				ref.child("users").child(uid).child('units').child(i).child('theme').set(theme);
-			}
-			createLesson(lesson.name, theme.toUpperCase(), lesson.difficulty, i);
-		}
+		var numThemes = objectToList(snapshot.child("users").child(uid).child("active").val()).length;
 		if (numThemes === 1) {
 			displayChoices();
 		}
+		
+		$("#main").css("display", "block");
+		$(".spinner").css("display", "none");
+		try{
+			for (var i = 1; i <= level; i++) {
+				var lesson = snapshot.child("units").child(i).val();
+				var theme = snapshot.child("users").child(uid).child('units').child(i).child('theme').val();
+				if (!theme) {
+					var active = snapshot.child("users").child(uid).child("active").val();
+					theme = generateUnit(objectToList(active));
+					ref.child("users").child(uid).child('units').child(i).child('theme').set(theme);
+				}
+				createLesson(lesson.name, theme.toUpperCase(), lesson.difficulty, i);
+			}
+		} catch(e){
+		}
+		
+		
 	});
 });
 

@@ -64,6 +64,10 @@ function runit() {
 
    var outputVerify;
    var inputVerify;
+   $(".verifying").css("display", "initial");
+   $(".wrongnoti").css("display", "none")
+   $("#console-wrapper").removeClass("wrong");
+   $("#console-wrapper").removeClass("right");
    ref.once('value', function(snapshot) {
     var temp = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).val();
     outputVerify = temp['output'];
@@ -80,13 +84,12 @@ function runit() {
           addLevel();
         }
       }
-      $(".wrongnoti").css("display", "none");
-      $("#console-wrapper").removeClass("wrong");
       $("#console-wrapper").addClass("right");
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").set(true);
     } else {
       notQuite();
     }
+    $(".verifying").css("display", "none");
    });
    
 }
@@ -230,6 +233,9 @@ function next() {
   window.clearInterval(dataSaver);
   unitID = getUnit();
   lessonID ++;
+  $("#main").css("display", "none");
+  $("#next").css("display", "none")
+  $(".spinner").css("display", "block");
   ref.once('value', function(snapshot) {
     if (snapshot.child('units').child(unitID).child('lessons').numChildren() < lessonID) {
       window.location.replace("learning.html");
