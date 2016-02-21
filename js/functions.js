@@ -61,15 +61,17 @@ function runit() {
    ref.once('value', function(snapshot) {
     var temp = snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).val();
     outputVerify = temp['output'];
+    console.log(outputVerify);
     inputVerify = temp['input'];
-   })
-
-   if (verifyLesson(inputVerify, outputVerify)) {
+    console.log(inputVerify);
+    if (verifyLesson(inputVerify, outputVerify)) {
       $('#next').css('display', 'block');
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").set(true);
-   } else {
+    } else {
       notQuite();
-   }
+    }
+   });
+   
 }
 
 function loadLesson() {
@@ -93,33 +95,19 @@ function loadLesson() {
       code = code.format({a: generatedWord});
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("code").set(code);
       input = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("input").val();
-      input = input.format({a: generatedWord});
+      for (var i=0; i<input.length; i++) {
+        input[i] = input[i].format({a: generatedWord})
+      }
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("input").set(input);
       output = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("output").val();
-      output = output.format({a: generatedWord});
+      for (var i=0; i<output.length; i++) {
+        output[i] = output[i].format({a: generatedWord})
+      }
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("output").set(output);
     } else {
       text = existingText;
       code = existingCode;
       input = existingInput;
-      output = existingOutput;
-    }
-    if (! existingCode) {
-      code = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("code").val();
-      code = code.format({a: generatedWord});
-    } else {
-      code = existingCode;
-    }
-    if (! existingInput) {
-      input = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("input").val();
-      input = input.format({a: generatedWord});
-    } else {
-      input = existingInput;
-    }
-    if (! existingOutput) {
-      output = snapshot.child("units").child(unitID).child("lessons").child(lessonID).child("output").val();
-      output = output.format({a: generatedWord});
-    } else {
       output = existingOutput;
     }
 
@@ -142,6 +130,7 @@ function loadLesson() {
 function verifyLesson(inp, out) {
   var codeOut = consoleOut.getValue();
   var codeIn = myCodeMirror.getValue();
+  console.log()
   for (var i=0; i<out.length; i++) {
     var includes = true;
     var check = out[i];
@@ -185,15 +174,20 @@ function getUnit() {
 }
 
 function next() {
+  window.clearInterval(dataSaver);
+  unitID = getUnit();
   lessonID ++;
   ref.once('value', function(snapshot) {
+    console.log(snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren());
     if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() < lessonID) {
       window.location.replace("learning.html");
     } else if (snapshot.child("users").child(uid).child("units").child(unitID).child("lessons").numChildren() === lessonID) {
       $('#next').text("Finish");
       loadLesson();
+      dataSaver = window.setInterval(saveCode, 10000);
     } else {
       loadLesson();
+      dataSaver = window.setInterval(saveCode, 10000);
     }
   });
 }
@@ -228,10 +222,5 @@ String.prototype.format = function (arguments) {
 };
 
 $("#next").on('click', function() {
-  if ($(this).text() === "Finish") {
-    window.location.href("learning.html");
-  } else {
-    lessonID++;
-    loadLesson();
-  }
+  next();
 });
