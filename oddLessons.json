@@ -1,0 +1,36 @@
+//Unit 2 - Intro to variables
+{
+    "difficulty" : "INTERMEDIATE",
+    "lessons" : [ null, {
+      "code" : "#Make an array called {a} that contains \"{b}\", \"{c}\", and \"{d}\"\n\n#Print the array\n",
+      "input" : [ "{a}", "{b}", "{c}", "{d}" ],
+      "output" : [ "{b}", "{c}", "{d}" ],
+      "text" : "Before now, all the arrays you've seen are what programmers call 1D arrays. Remember how 1D objects are just lines? A 1D array is easily pictured as just a bunch of objects placed next to each other in line. Let's recap how to do a 1D array."
+    },
+    	{
+      "code" : "{a} = [1,2,3]\n{b} = [4,5,6]\n{c} = [7,8,9]\n\n{d}=[{a},{b},{c}]\nprint({d})",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "Now, what if we decide to do something crazy and store an array in an array. Arrayception! That's what a 2D array is: an array of arrays. Check it out below."
+    },
+    	{
+      "code" : "{a} = [1,2,3]\n{b} = [4,5,6]\n{c} = [7,8,9]\n\n{d}=[{a},{b},{c}]\nprint({d}[0][0])",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "You might ask the question: how do we access elements of a 2D array? It turns out that it's pretty easy! Let's say we want to access the first element of the first array in our 2D array. We access the outer array like normal to get the first array, and then we access that array like normal to get the first element. Remember, programmers count from 0!"
+    },
+    	{
+      "code" : "{a} = [1,2,3]\n{b} = [4,5,6]\n{c} = [7,8,9]\n\n{d}=[{a},{b},{c}]\nprint({d}[0][0])",
+      "input" : [ "[2][1]" ],
+      "output" : [ "8" ],
+      "text" : "Time for you to try it out! Make it print the second element of the third array."
+    },
+      {
+      "code" : "{a} = [[\"{b}\",\"{c}\",\"{d}\"],[\"{e}\",\"{f}\",\"{g}\"],[\"{h}\",\"{i}\",\"{j}\"]]",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "Alright, go crazy! I made an array for you to play with, do whatever you want with it! I'd recommend trying to incorporate loops with these arrays - next lesson will touch on that more!"
+    }
+    ],
+    "name" : "2D Arrays"
+}

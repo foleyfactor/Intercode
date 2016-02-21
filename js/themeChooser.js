@@ -44,22 +44,22 @@ function populateThemes(active){
 }
 
 function addTheme(theme){
-	ref.once("value", function(snapshot){
-		activeThemes = snapshot.child("users").child(uid).child("active").val();
-		var inDB = false;
-		for(var key in activeThemes){
-			if (activeThemes[key]==theme){
-				inDB = true;
-				break;
+	if ($("."+theme).hasClass("active")){
+		$("."+theme).removeClass("active");
+		ref.once("value", function(snapshot){
+			var value = snapshot.child("users").child(uid).child("active").val()
+			for (var key in value) {
+				if (value[key]!=theme){
+					continue
+				} else {
+					ref.child("users").child(uid).child("active").child(key).remove();
+				}
 			}
-		}
-		if(inDB){
-			ref.child("users").child(uid).child("active").child(key).remove();
-			$("."+theme).removeClass("active");
-		} else {
-			var pushRef = ref.child("users").child(uid).child("active").push();
+			
+		});
+	} else {
+		var pushRef = ref.child("users").child(uid).child("active").push();
 			$("."+theme).addClass("active");
 			pushRef.set(theme);
-		}
-	});
+	}
 }
