@@ -80,12 +80,22 @@ function runit() {
           addLevel();
         }
       }
+      $(".wrongnoti").css("display", "none");
+      $("#console-wrapper").removeClass("wrong");
+      $("#console-wrapper").addClass("right");
       ref.child("users").child(uid).child("units").child(unitID).child("lessons").child(lessonID).child("completed").set(true);
     } else {
       notQuite();
     }
    });
    
+}
+
+function notQuite(){
+  $("#next").css("display", "none");
+  $(".wrongnoti").css("display", "inline-block")
+  $("#console-wrapper").removeClass("right");
+  $("#console-wrapper").addClass("wrong");
 }
 
 function addPoints(difficulty){
@@ -266,5 +276,6 @@ String.prototype.format = function (arguments) {
 };
 
 $("#next").on('click', function() {
+  $("#console-wrapper").removeClass("right");
   next();
 });
