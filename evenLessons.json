@@ -142,5 +142,54 @@
       "text" : "Congratulations! You're now a looping master. Check out the for loop below and click \"Run\" when you're ready. When you feel ready, click finished.\nWant practice? Try to use loops to program the following:\nPrint the biggest square number less than a million.\nCount backwards from 100 (hint: use stepNumber = -1 do go down by 1 each time)."
     }
     ],
-    "name" : "Introduction to Loops",
+    "name" : "Introduction to Loops"
+  }
+
+{
+    "difficulty" : "INTERMEDIATE",
+    "lessons" : [ null, 
+      {
+      "code" : "for {a} in range(10):\n  print({a})",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "Previously, we looked at loops. Here's a refresher example of a <em>for loop</em>. Click \"Run\" when you're ready to move on."
+    },
+      {
+      "code" : "for {a} in range(3):\n  for {b} in range(10):\n    print({b})",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "Just like <em>arrays</em>, we can put loops inside loops. We call these <em>Nested Loops</em>. Check out the code below, try to predict what will happen, and then click \"Run\" to start nesting your own loops!"
+    },
+      {
+      "code" : "for {a} in range(3):\n  for {b} in range(10):\n    print({b})",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "What's happening? The outer loop (with {a} in it) is running 3 times. Each time the outer loop runs, it runs the inner loop (with {b}) which runs 10 times. In total, 30 things are printed out. Try playing around with the range of the inner and outer loops, or even add another! When you are ready, move on to the next problem."
+    },
+      {
+      "code" : "#Make the outer loop go from 1-10.\n#Make the inner loop go from 1-10.\n#Add a condition to the if statement to check if {a} equals {b}\n#If {a} equals {b}, then print their product.\nfor {a} in range(_, _):\n  for {b} in range(_, _):\n    if ({a} _ {b}):\n      print({a} _ {b})",
+      "input" : [ "" ],
+      "output" : [ "1", "4", "9", "16", "25", "36", "49", "64", "81", "100"],
+      "text" : "Your math teacher wants to know the squares of the first 10 numbers but, because you're learning about nested loops, you decide to practice your skills. Fill in the blanks below to satisfy your math teacher."
+    },
+      {
+      "code" : "#len(thing) gives us the length of an object (e.g. len([1,2]) = 2)\n#This is very useful when looping through arrays.\n{a} = [\"{b}\", \"{c}\", \"{d}\"]\nfor {e} in range(len({a})):\n  print({a}[{e}])",
+      "input" : [ "for", "len" ],
+      "output" : [ "" ],
+      "text" : "Last lesson, we learned about 2D Arrays. Let's use a nested for loop to go through a 2D Array and print out each of the elements. Let's start by looping through a 1D Array. Check out the example below:"
+    },
+      {
+      "code" : "{a} = [[\"{b}\", \"{c}\"], [\"{d}\", \"{e}\"], [\"{f}\", \"{g}\"]]\n\n#Fill in the blank to make the range equal to the length of the outer array({a}).\nfor {h} in range(_):\n\n#Fill in the blank to make range equal to length of the inner array\n#(Hint: the inner array is {a}[{h}])\n  for {i} in range(_):\n\n#Fill in the blanks to make it get the current element.\n    print({a}[_][_])",
+      "input" : [ "for", "len" ],
+      "output" : [ "{b}", "{c}", "{d}", "{e}", "{f}", "{g}", "[{h}]", "[{i}]" ],
+      "text" : "Now, let's step it up to a 2D Array! Help fill in the blanks below to print out all of the elements of the 2D Array called {a}."
+    },
+      {
+      "code" : "for {a} in range(1, 11):\n  {c} = \"\"\n  for {b} in range(a):\n    {c} += \"0\"\n  print({c})",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "Seems like you've got the hang of nested loops! Click run to check out the nested for loop below, and play around to make something cool."
+    }
+    ],
+    "name" : "Nested Loops"
   }

@@ -169,6 +169,9 @@ function loadLesson() {
 
     if (alreadyCompleted) {
       $("#next").css("display", "inline-block");
+      if (lessonID === snapshot.child('units').child(unitID).child('lessons').numChildren()) {
+        $("#next").text("FINISH");
+      }
     } else {
       $("#next").css("display", "none");
     }
