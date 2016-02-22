@@ -193,3 +193,60 @@
     ],
     "name" : "Nested Loops"
   }
+//Unit 10 - Bubble Sort (the finale)
+  {
+    "difficulty" : "HARD",
+    "lessons" : [ null, 
+      {
+      "code" : "def bubbleSort({a}):\n  for {b} in range(len({a}-1, 0, 1):\n    for {c} in range({b}):\n      {d} = {a}[{c}]\n      {e} = {a}[{c}+1]\n      if {d} > {e}:\n        {a}[{c}] = {e}\n        {a}[{c}+1] = {d}\n  return arr\n\nprint(bubbleSort([4,3,2,5,1]))",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "This lesson is going to be a common application of nested for loops. Before you move on with this lesson, make sure that you are good with nested for loops. When you are ready to move on, click the \"Run\" button below."
+    },
+      {
+      "code" : "def bubbleSort({a}):\n  for {b} in range(len({a}-1, 0, 1):\n    for {c} in range({b}):\n      {d} = {a}[{c}]\n      {e} = {a}[{c}+1]\n      if {d} > {e}:\n        {a}[{c}] = {e}\n        {a}[{c}+1] = {d}\n  return arr\n\nprint(bubbleSort([4,3,2,5,1]))",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "The program works by looping through the list and checking every two adjacent numbers. If the second number is bigger than the first, we swap the two and continue on. Each time through, we have to check one fewer pairs until eventually everything is sorted. Click \"Run\" to move on to creating your own bubbleSorter!"
+    },
+      {
+      "code" : "#Below is a function called bubbleSort. It takes an array and returns the sorted array.\n#Start by making a loop whose range starts at length of {a}-1 and goes down by 1 until it gets to 1 (1 should be the last time).\n#Make another (inner) loop. This loop's range should be from 0 to the current value of the outer loop.\n#Let's call the current value of the inner loop {g}. Compare the {g}th and ({g)+1)th element in {a}.\n#If the first of the two is bigger, swap the values. Otherwise, don't do anything.\n#At the end of your outer loop, return the new {a}.\ndef bubbleSort({a}):\n  \n\n#Run your algorithm to see if it works!\nprint(bubbleSorter([5,4,3,2,1]))",
+      "input" : [ "!.sort()", "for", "range" ],
+      "output" : [ "[1, 2, 3, 4, 5]" ],
+      "text" : "Leaning how to translate words and ideas into code is a big part of Computer Science and programming. Below, the instructions for writing the algorithm are given in plain English, try to code it yourself. If you get stuck, restart the lesson and take a look at the example."
+    }
+    ],
+    "name" : "Bubble Sort"
+  } 
+
+//Unit 9 - Recursion
+{
+    "difficulty" : "HARD",
+    "lessons" : [ null, 
+      {
+      "code" : "def gcd({a}, {b}):\n  {c} = min({a},{b})\n  {d} = max({a},{b})\n  if {c} == 0:\n    return {d}\n  else:\n    return gcd({c}, {d}%{c})\n\n\nprint(gcd(900, 65))",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "Recursion is another important technique in the world of Computer Science. In this unit, we will be looking at the <a href=\"https://en.wikipedia.org/wiki/Euclidean_algorithm\">Euclidean Algorithm</a>, a very common example of recursion in programming. The Euclidean Algorithm allows us to quickly and easily find the greatest common divisor (gcd) of any two numbers. Click \"Run\" to check it out and get started."
+    },
+      {
+      "code" : "#min({a},{b}) returns the minimum value between {a} and {b}.\nprint(min(1,2))\n#This prints 1.\n\n#max({a},{b}) returns the maximum value between {a} and {b}.\nprint(max(1,2))\n#This prints 2.\n\n#{a} % {b} returns the remainder when {a} is divided by {b}.\nprint(5 % 2)\n#This prints 1.",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "First, let's look at some of the important built-in functions that we'll be using to make this work. Check out the code below. Click \"Run\" when you're ready to move on to the next part."
+    },
+      {
+      "code" : "def gcd({a}, {b}):\n#assign the variable {c} the min value between {a} and {b}\n  {c} = _\n#assign the variable {d} the max value between {a} and {b}\n  {d} = _\n#check if {c} equals 0 and, if so, return the value of {d}\n  if {c} _ 0:\n    _ {d}\n  else:\n#otherwise, return the gcd of {c} and the remainder when {d} is divided by {c}.\n    return gcd({c}, {d} _ {c})\n\n\n#Let's see if it works by printing!\nprint(gcd(3432, 9000))",
+      "input" : [ "" ],
+      "output" : [ "24" ],
+      "text" : "Fill in the blanks with the missing code, based on the given instructions."
+    },
+      {
+      "code" : "def gcd({a}, {b}):\n  {c} = min({a},{b})\n  {d} = max({a},{b})\n  if {c} == 0:\n    return {d}\n  else:\n    return gcd({c}, {d}%{c})\n\n\nprint(gcd(900, 65))",
+      "input" : [ "" ],
+      "output" : [ "" ],
+      "text" : "Congratulations! You've mastered the Euclidean Algorithm! Play around below and try to make your own recursive programs!"
+    }
+    ],
+    "name" : "Recursion"
+  }
