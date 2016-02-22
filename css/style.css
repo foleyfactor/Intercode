@@ -221,6 +221,7 @@ Code editing
 	z-index: 100;
 	bottom: 7px;
 	right: 0px;
+	width: 6em;
 }
 .CodeMirror {
 	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
