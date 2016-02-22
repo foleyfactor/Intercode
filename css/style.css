@@ -202,14 +202,26 @@ Login area
 /**
 Code editing
 **/
-form {
+#codeEditor {
 	font-family: monospace;
+	margin: 0px auto;
+	width: 60%;
+	position: relative;
 }
 #editor-wrapper, #console-wrapper, #button-wrapper {
-	width: 60%;
+	width: 100%;
 	margin: 10px auto;
 }
-
+#editor-wrapper {
+	position: relative;
+	z-index: 1;
+}
+#button-wrapper {
+	position: absolute;
+	z-index: 100;
+	bottom: 7px;
+	right: 0px;
+}
 .CodeMirror {
 	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
 	border-radius: 0.2em;
