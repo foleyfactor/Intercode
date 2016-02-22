@@ -60,7 +60,7 @@ function createLesson(title, tag, level, unit, progress){
             color : "green"
         }
     });
-    $(".circle"+unit+" span").html(100*progress+"%")
+    $(".circle"+unit+" span").html(Math.round(100*progress)+"%")
 	console.log(progress)
 }
 function setUnit(unitID) {
