@@ -28,7 +28,16 @@ $(document).ready(function(){
 					theme = generateUnit(objectToList(active));
 					ref.child("users").child(uid).child('units').child(i).child('theme').set(theme);
 				}
-				createLesson(lesson.name, theme.toUpperCase(), lesson.difficulty, i);
+				var numLessonsCompleted = snapshot.child("users").child(uid).child("units").child(i).child("lessons").numChildren();
+				if(numLessonsCompleted>0){
+					var lastValue = snapshot.child("users").child(uid).child("units").child(i).child("lessons").child(numLessonsCompleted).child("completed").val();
+					if(!lastValue){
+						numLessonsCompleted-=1;
+					}
+				}
+				var numLessonsTotal = snapshot.child("units").child(i).child("lessons").numChildren();
+				console.log(numLessonsCompleted/numLessonsTotal)
+				createLesson(lesson.name, theme.toUpperCase(), lesson.difficulty, i, (numLessonsCompleted/numLessonsTotal));
 			}
 		} catch(e){
 		}
@@ -37,12 +46,20 @@ $(document).ready(function(){
 	});
 });
 
-function createLesson(title, tag, level, unit){
-	$("#lessons").append('<li class="lessonitem"><div class="lessonitemleft"> \
+function createLesson(title, tag, level, unit, progress){
+	$("#lessons").append('<li class="lessonitem"><div class="lessonitemleft">\
 		<h1 class="lessontitle">'+title+'</h1> \
 		<span class="tag '+level+'">'+level+'</span>\
 		<span class="tag theme">'+tag+'</span></div>\
-	<div class="lessonitemright"><a href="lesson.html" unit="' + unit + '" class="button" onclick="setUnit('+unit+');">GO &#9656;</a></div></li>');
+	<div class="lessonitemright"><a href="lesson.html" unit="' + unit + '" class="button" onclick="setUnit('+unit+');">GO &#9656;</a><div class="circle circle'+unit+'"></div></div></li>');
+	
+	$(".circle"+unit).circleProgress({
+		value: progress,
+        size: 32,
+        fill: {
+            color : "green"
+        }
+    });
 }
 function setUnit(unitID) {
 	localStorage.setItem("unit", unitID);

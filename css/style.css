@@ -451,3 +451,10 @@ Wrong notification
 	padding: 0.2em;
 	border-radius: 0.1em;
 }
+.circle {
+	margin: -15vh 8em;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	height: 15vh;
+}
