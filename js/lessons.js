@@ -51,7 +51,7 @@ function createLesson(title, tag, level, unit, progress){
 		<h1 class="lessontitle">'+title+'</h1> \
 		<span class="tag '+level+'">'+level+'</span>\
 		<span class="tag theme">'+tag+'</span></div>\
-	<div class="lessonitemright"><a href="lesson.html" unit="' + unit + '" class="button" onclick="setUnit('+unit+');">GO &#9656;</a><div class="circle circle'+unit+'"></div></div></li>');
+	<div class="lessonitemright"><a href="lesson.html" unit="' + unit + '" class="button" onclick="setUnit('+unit+');">GO &#9656;</a><div class="circle circle'+unit+'"><span></span></div></div></li>');
 	
 	$(".circle"+unit).circleProgress({
 		value: progress,
@@ -60,6 +60,8 @@ function createLesson(title, tag, level, unit, progress){
             color : "green"
         }
     });
+    $(".circle"+unit+" span").html(100*progress+"%")
+	console.log(progress)
 }
 function setUnit(unitID) {
 	localStorage.setItem("unit", unitID);

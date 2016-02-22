@@ -454,7 +454,17 @@ Wrong notification
 .circle {
 	margin: -15vh 8em;
 	display: flex;
+	position: relative;
 	align-items: center;
-	height: 100%;
 	height: 15vh;
+}
+.circle span {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+	font-weight: 300;
+	font-size: 0.6em;
+	color: green;
+	width: 32px;
 }
